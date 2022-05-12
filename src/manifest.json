@@ -3,9 +3,6 @@
   "description": "",
   "version": "0.0.1",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "bundle.js"
-  },
   "content_scripts": [
     {
       "matches": [
@@ -13,7 +10,8 @@
       ],
       "js": [
         "bundle.js"
-      ]
+      ],
+      "run_at": "document_end"
     }
   ],
   "icons": {
