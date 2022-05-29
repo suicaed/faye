@@ -9,9 +9,19 @@
         "*://rivalregions.com/*"
       ],
       "js": [
-        "bundle.js"
+        "app.js"
       ],
       "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "web.js"
+      ],
+      "matches": [
+        "*://rivalregions.com/*"
+      ]
     }
   ],
   "icons": {

@@ -1,33 +1,36 @@
-const path = require('path');
+const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
-const buildDirPath = path.resolve(__dirname, 'build');
+const buildDirPath = path.resolve(__dirname, "build");
 
 module.exports = {
-  entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  entry: {
+    app: "./src/index.ts",
+    web: "./src/webAR.ts",
+  },
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.ts', '.js'],
+    extensions: [".ts", ".ts", ".js"],
   },
   output: {
-    filename: 'bundle.js',
+    filename: "[name].js",
     path: buildDirPath,
     clean: true,
   },
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './src/manifest.json', to: buildDirPath },
-        { from: './src/icon/', to: path.resolve(buildDirPath, 'icon') },
+        { from: "./src/manifest.json", to: buildDirPath },
+        { from: "./src/icon/", to: path.resolve(buildDirPath, "icon") },
       ],
     }),
   ],
